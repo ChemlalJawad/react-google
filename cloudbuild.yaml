@@ -1,0 +1,11 @@
+steps:
+  # Étape 1: Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/vite-project', '.']
+  
+  # Étape 2: Push l'image dans Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/vite-project']
+
+images:
+  - 'gcr.io/$PROJECT_ID/vite-project'
